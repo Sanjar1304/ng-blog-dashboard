@@ -1,0 +1,11 @@
+
+.app-body {
+  margin-top: 10rem;
+  min-height: 35vh;
+}
+
+.subs-wrapper{
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+}
