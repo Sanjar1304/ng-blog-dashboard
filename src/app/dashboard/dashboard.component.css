@@ -1,4 +1,9 @@
 .card {
   height: 12.5rem;
+  transition: ease-in-out 100ms;
 }
- 
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+}
