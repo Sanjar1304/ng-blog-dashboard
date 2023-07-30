@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ng-blog-22d62"
+  },
+  "targets": {
+    "ng-blog-22d62": {
+      "hosting": {
+        "ng-blog-dashboard": [
+          "ng-blog-22d62"
+        ]
+      }
+    }
+  }
+}
