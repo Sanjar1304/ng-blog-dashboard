@@ -12,4 +12,13 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  onSubmit(formData: any){
+   let categoryData = {
+    category: formData.value
+   }
+   console.log(categoryData)
+  }
+
+
 }
