@@ -16,32 +16,28 @@ export class CategoriesComponent implements OnInit {
 
   onSubmit(formData: any){
 
-   let categoryData = {
-    category: formData.value.category,
-    status: 'active'
-   }
+    let categoryData = {
+     category: formData.value.category,
+     status: 'active'
+    }
 
-   let subCategoryData = {
-    subCategory: 'SubCategory1'
-   }
+    let subCategoryData = {
+     subCategory: 'SubCategory1'
+    }
 
-
-   this.fireStore.collection('categories').add(categoryData).then(docRef => {
-    console.log(docRef);
-
-    this.fireStore.collection('categories').doc(docRef.id).collection('subcategories').add(subCategoryData).then(docRef1 => {
-      console.log(docRef1);
-
-      this.fireStore.collection('categories').doc(docRef.id).collection('subcategories').doc(docRef1.id).collection('subsubcategory').add(subCategoryData).then(docRef2 => {
-        console.log('Second Level SubCategory Saved Successfully');
+    this.fireStore.collection('categories').add(categoryData).then(docRef => {
+      console.log(docRef);
+      this.fireStore.doc(`categories/${docRef.id}`).collection('subcategories').add(subCategoryData).then(docRef1 => {
+        console.log(docRef1);
+        this.fireStore.doc(`categories/${docRef.id}/subcategories/${docRef1.id}`).collection('subsubcategory').add(subCategoryData).then(docRef2 => {
+          console.log(docRef2);
+          console.log('Second Level SubCategory Saved Successfully');
+        })
       })
     })
-
-   })
-   .catch((error) => {
-      console.log(error)
-   })
-
+    .catch((error) => {
+       console.log(error)
+    })
   }
 
 
