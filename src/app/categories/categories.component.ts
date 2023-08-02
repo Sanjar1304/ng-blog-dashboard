@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CategoriesService } from '../services/categories.service';
+
 
 @Component({
   selector: 'app-categories',
@@ -8,32 +9,15 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private fireStore: AngularFirestore) { }
+  constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {}
 
-
   onSubmit(formData: any){
-
     let categoryData = {
-     category: formData.value.category,
-     status: 'active'
+      category: formData.value.category
     }
-
-    let subCategoryData = {
-     subCategory: 'SubCategory1'
-    }
-
-    this.fireStore.collection('categories').add(categoryData).then(docRef => {
-      this.fireStore.doc(`categories/${docRef.id}`).collection('subcategories').add(subCategoryData).then(docRef1 => {
-        this.fireStore.doc(`categories/${docRef.id}/subcategories/${docRef1.id}`).collection('subsubcategory').add(subCategoryData).then(docRef2 => {
-          console.log('Second Level SubCategory Saved Successfully');
-        })
-      })
-    })
-    .catch((error) => {
-       console.log(error)
-    })
+    this.categoryService.saveData(categoryData)
   }
 
 
