@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../services/categories.service';
+import { Category } from '../models/category';
 
 
 @Component({
@@ -14,11 +15,13 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(formData: any){
-    let categoryData = {
+    let categoryData: Category = {
       category: formData.value.category
     }
     this.categoryService.saveData(categoryData)
   }
+
+
 
 
 }
