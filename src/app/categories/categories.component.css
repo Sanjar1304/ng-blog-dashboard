@@ -3,5 +3,18 @@
 }
 
 .category_btn{
-margin-left: -6rem;
+  margin-left: -6rem;
+  margin-top: -2rem;
+  position: fixed;
+}
+
+small{
+  margin-top: .5rem;
+  width: 88%;
+}
+
+.frozen-btn{
+  opacity: .7;
+  cursor: not-allowed;
+  background-color: #519795;
 }

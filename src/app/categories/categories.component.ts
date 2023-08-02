@@ -10,8 +10,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private fireStore: AngularFirestore) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 
   onSubmit(formData: any){
