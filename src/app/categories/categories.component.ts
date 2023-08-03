@@ -14,6 +14,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  
   onSubmit(formData: any){
     let categoryData: Category = {
       category: formData.value.category
