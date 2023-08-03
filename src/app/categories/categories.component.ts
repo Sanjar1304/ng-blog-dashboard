@@ -10,6 +10,8 @@ import { Category } from '../models/category';
 })
 export class CategoriesComponent implements OnInit {
 
+  categoryList!: any[];
+
   constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {
@@ -18,8 +20,9 @@ export class CategoriesComponent implements OnInit {
 
 
   getCategories(){
-    this.categoryService.loadData().subscribe(response => {
+    this.categoryService.loadData().subscribe((response: any) => {
       console.log(response)
+      this.categoryList = response
     })
   }
 
@@ -29,6 +32,7 @@ export class CategoriesComponent implements OnInit {
       category: formData.value.category
     }
     this.categoryService.saveData(categoryData);
+    formData.reset()
   }
 
 
