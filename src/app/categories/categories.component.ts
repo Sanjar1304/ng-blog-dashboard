@@ -12,15 +12,25 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private categoryService: CategoriesService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCategories();
+  }
 
-  
+
+  getCategories(){
+    this.categoryService.loadData().subscribe(response => {
+      console.log(response)
+    })
+  }
+
+
   onSubmit(formData: any){
     let categoryData: Category = {
       category: formData.value.category
     }
-    this.categoryService.saveData(categoryData)
+    this.categoryService.saveData(categoryData);
   }
+
 
 
 

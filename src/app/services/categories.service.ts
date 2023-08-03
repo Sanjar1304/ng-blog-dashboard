@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,15 @@ export class CategoriesService {
 
 
 
+  loadData(){
+    return this.fireStore.collection('categories').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(arr => {
+          const data = arr.payload.doc.data();
+          const id = arr.payload.doc.id;
+          return { id, data };
+        })
+      })
+    )
+  }
 }
