@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 p-5 bg-secondary-theme shadow-effect">
-      <h3 class="text-center text-theme-primary">New Categories</h3>
+      <h3 class="text-center text-theme-primary">{{formStatus}} Categories</h3>
       <p class="text-center mb-5">You can add new categories from here ...!</p>
 
       <form class="form-inline text-center" #categoryForm='ngForm' (ngSubmit)="onSubmit(categoryForm)">
@@ -26,7 +26,7 @@
             class="btn btn-block btn-theme mb-2 category_btn"
             [ngClass]="{'frozen-button': categoryForm.invalid}"
             [disabled]="categoryForm.invalid">
-            Add Category
+            {{formStatus}} Category
           </button>
         </div>
       </form>
