@@ -40,7 +40,11 @@ export class CategoriesService {
 
 
 
-  
+  updateData(id:any, editData:any){
+    this.fireStore.collection('categories').doc(id).update(editData).then(docRef => {
+      this.toaster.success('Updated Successfully');
+    })
+  }
 
 
 
