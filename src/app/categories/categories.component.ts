@@ -11,6 +11,7 @@ import { Category } from '../models/category';
 export class CategoriesComponent implements OnInit {
 
   categoryList!: any[];
+  formCategory!: string
 
   constructor(private categoryService: CategoriesService) { }
 
@@ -22,7 +23,7 @@ export class CategoriesComponent implements OnInit {
   getCategories(){
     this.categoryService.loadData().subscribe((response: any) => {
       console.log(response)
-      this.categoryList = response
+      this.categoryList = response;
     })
   }
 
@@ -37,6 +38,9 @@ export class CategoriesComponent implements OnInit {
 
 
 
+  onEdit(category: any){
+    this.formCategory = category;
+  }
 
 
 }

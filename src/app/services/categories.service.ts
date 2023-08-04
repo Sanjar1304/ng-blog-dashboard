@@ -11,6 +11,8 @@ export class CategoriesService {
   constructor(private fireStore: AngularFirestore,
               private toaster: ToastrService) { }
 
+
+
   saveData(value:any){
     this.fireStore.collection('categories').add(value).then(docRef => {
       this.toaster.success('Added Successfully')
@@ -35,4 +37,11 @@ export class CategoriesService {
       })
     )
   }
+
+
+
+  
+
+
+
 }

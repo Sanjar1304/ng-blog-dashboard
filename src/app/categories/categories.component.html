@@ -7,7 +7,7 @@
       <form class="form-inline text-center" #categoryForm='ngForm' (ngSubmit)="onSubmit(categoryForm)">
         <div class="form-group col-md-10">
           <input
-            ngModel
+            [(ngModel)]="formCategory"
             required
             type="text"
             name="category"
@@ -51,7 +51,12 @@
               <tr *ngFor="let item of categoryList; let i = index">
                 <td>{{i+1}}</td>
                 <td>{{item.data.category}}</td>
-                <td></td>
+                <td>
+                  <button class="btn btn-sm btn-warning" (click)="onEdit(item.data.category)">
+                    <i></i>
+                    Edit
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
