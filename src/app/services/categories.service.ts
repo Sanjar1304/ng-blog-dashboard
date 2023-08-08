@@ -48,4 +48,13 @@ export class CategoriesService {
 
 
 
+
+  delete(id:any){
+    this.fireStore.collection('categories').doc(id).delete().then(docRef => {
+      this.toaster.success('Deleted Successfully');
+    })
+  }
+
+
+
 }
