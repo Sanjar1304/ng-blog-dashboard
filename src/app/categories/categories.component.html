@@ -52,11 +52,8 @@
                 <td>{{i+1}}</td>
                 <td>{{item.data.category}}</td>
                 <td>
-                  <button class="btn btn-sm btn-warning" (click)="onEdit(item.data.category, item.id)">
-                    Edit
-                  </button>
-
-                  <button class="btn btn-sm btn-danger ml-1" (click)="onDelete(item.id)">Delete</button>
+                  <button class="btn btn-sm btn-warning" (click)="onEdit(item.data.category, item.id)">Edit</button>
+                  <button class="btn btn-sm btn-danger ml-2" (click)="onDelete(item.id)">Delete</button>
                 </td>
               </tr>
             </tbody>

@@ -41,7 +41,7 @@ export class CategoriesService {
 
 
   updateData(id:any, editData:any){
-    this.fireStore.collection('categories').doc(id).update(editData).then(docRef => {
+    this.fireStore.doc(`categories/${id}`).update(editData).then(docRef => {
       this.toaster.success('Updated Successfully');
     })
   }
@@ -49,8 +49,8 @@ export class CategoriesService {
 
 
 
-  delete(id:any){
-    this.fireStore.collection('categories').doc(id).delete().then(docRef => {
+  deleteData(id:any){
+    this.fireStore.doc(`categories/${id}`).delete().then(docRef => {
       this.toaster.success('Deleted Successfully');
     })
   }
